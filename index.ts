@@ -1,4 +1,4 @@
 export const sayHelloToCompiler=function(compiler:string){
-    console.log("hey! "+compiler+",\nthis is typescript saying hi");
+    console.log("Hello! "+compiler+",\nthis is typescript saying hi");
 }
-sayHelloToCompiler("jenkin");
+sayHelloToCompiler("Jenkin from git");

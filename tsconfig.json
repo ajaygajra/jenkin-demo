@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
-        "module": "es5",        
+        "module": "umd",
+        "declaration": true,        
     }
 }

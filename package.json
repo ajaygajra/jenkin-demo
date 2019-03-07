@@ -1,27 +1,32 @@
 {
   "name": "jenkin-demo-app",
   "version": "1.0.0",
-  "description": "say hello to jenkin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"tsc index.ts",
-    "run":"node index.js"
+    "build": "tsc index.ts",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajaygajra/jenkin-demo.git"    
+    "url": "git+https://github.com/ajaygajra/jenkin-demo.git"
   },
-  "keywords": [
-    "demo"
-  ],
-  "author": "ajay gajra",
+  "author": "Ajay Gajra",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ajaygajra/jenkin-demo/issues"
   },
   "homepage": "https://github.com/ajaygajra/jenkin-demo#readme",
+  "description": "helloworld jenkin",
+  "keywords": [
+    "Demo",
+    "App",
+    "Jenkin"
+  ],
   "dependencies": {
-    "@cometchat-pro/chat": "^1.2.0"
+    "@cometchat-pro/chat": "^1.2.0",
+    "@types/jsdom": "^12.2.3",
+    "jsdom": "^13.2.0",
+    "tsc": "^1.20150623.0"
   }
 }

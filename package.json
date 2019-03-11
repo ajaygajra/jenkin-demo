@@ -25,7 +25,6 @@
     "@cometchat-pro/chat": "^1.2.0",
     "assert": "^1.4.1",
     "browser-env": "^3.2.6",
-    "jasmine": "^3.3.1",
     "jsdom": "^13.2.0",
     "localStorage": "^1.0.4",
     "localforage": "^1.7.3",
@@ -36,6 +35,11 @@
     "tsc": "^1.20150623.0"
   },
   "devDependencies": {
+    "@types/jasmine": "^3.3.9",
+    "@types/node": "^11.11.0",
+    "jasmine": "^3.3.1",
+    "jasmine-core": "^3.3.0",
+    "jasmine-ts": "^0.3.0",
     "mock-local-storage": "^1.1.8"
   }
 }

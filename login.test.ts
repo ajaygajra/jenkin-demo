@@ -35,7 +35,7 @@ describe("CometChat login with apiKey", () => {
         CometChat.login(uid, apiKey).then(user => {
             console.log(user);
             expect(user instanceof CometChat.AppUser).toBe(true);
-            done();
+            done.fail();
         }, error => {
             console.log(error);
             done.fail(error);

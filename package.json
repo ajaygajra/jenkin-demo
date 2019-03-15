@@ -25,6 +25,7 @@
     "@cometchat-pro/chat": "^1.2.0",
     "assert": "^1.4.1",
     "browser-env": "^3.2.6",
+    "expect.js": "^0.3.1",
     "jsdom": "^13.2.0",
     "localStorage": "^1.0.4",
     "localforage": "^1.7.3",

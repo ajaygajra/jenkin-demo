@@ -18,6 +18,7 @@ var chat_1 = require("@cometchat-pro/chat");
 var appId = "12573e6ce3866", apiKey = "75c762224d81cea788df4fedce21d66cdeb382b9", uid = "superhero1";
 console.log(fetch);
 chat_1.CometChat.init(appId);
+
 describe("CometChat login with apiKey", function () {
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
     it("Login Cometchat using valid user and apiKey", function (done) {

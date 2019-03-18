@@ -27,9 +27,10 @@ const appId = "6e13b23d7a3",
     invalidApiKey = '3de4f1672b44a43f1593ea03a27e3b3202a3869C',
     apiKey = "3de4f1672b44a43f1593ea03a27e3b3202a3869b";
 
-describe('Array', function () {
-    this.timeout(10000);
+
+
     describe('Initialise CometChat and perfrom login functions', function () {
+        this.timeout(10000);
         it('Should generate the error if no appId/blank appId is provided', function (done) {
             CometChat.init('').then(function () {
                 done.fail('initialization done without the valid appId');
@@ -98,4 +99,3 @@ describe('Array', function () {
             })
         });
     });
-});

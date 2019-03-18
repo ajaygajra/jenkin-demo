@@ -19,7 +19,8 @@ global.fetch = fetch;
 
 const expect = require('expect.js');
 describe('Exports the correct objects', () => {
-    it('should export raw objects', () => {
+    it('should export raw objects', (done) => {        
+        
         expect(Object.keys(CometChat)).to.be.eql([
             'setAuthToken',
             'getAppId',
@@ -116,5 +117,6 @@ describe('Exports the correct objects', () => {
             'startTypingCount',
             'endTypingCount'
         ]);
+        done();
     });
 });

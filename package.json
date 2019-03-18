@@ -23,8 +23,10 @@
   "homepage": "https://github.com/ajaygajra/jenkin-demo#readme",
   "dependencies": {
     "@cometchat-pro/chat": "^1.2.0",
+    "@types/chai": "^4.1.7",
     "assert": "^1.4.1",
     "browser-env": "^3.2.6",
+    "chai": "^4.2.0",
     "expect.js": "^0.3.1",
     "jsdom": "^13.2.0",
     "localStorage": "^1.0.4",

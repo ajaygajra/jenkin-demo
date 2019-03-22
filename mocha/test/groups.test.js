@@ -57,9 +57,9 @@ describe('Initialize the CometChat and login', function () {
             public_group.setDescription(public_group_des);
 
             let public_group_to_be_joined = "jstestgroup1",
-            public_group_to_be_left = "jstestgroup1";
+                public_group_to_be_left = "jstestgroup1";
 
-            it("Should create public group", function () {            
+            it("Should create public group", function () {
                 return CometChat.createGroup(public_group).should.eventually.to.be.instanceof(CometChat.Group);
             });
 
@@ -67,20 +67,28 @@ describe('Initialize the CometChat and login', function () {
                 return CometChat.createGroup(public_group).should.be.rejectedWith(CometChat.CometChatException);
             });
 
-            it("Get Group information for type=public and status=joined group", function () {
+            it("Should get Group information for type=public and status=joined", function () {
                 return CometChat.getGroup(public_GUID).should.eventually.to.be.an.instanceof(CometChat.Group);
             });
 
-            it("Get Group information for type=public and status=joined group", function () {
+            it("Should not  get group information for type=public and status= not joined ", function () {
                 return CometChat.getGroup(notjoined_public_GUID).should.be.rejectedWith(CometChat.CometChatException);
             });
 
-            it("joining the group", function () {
+            it("Should join the public group", function () {
                 return CometChat.joinGroup(public_group_to_be_joined, group_type_public).should.eventually.to.be.an.instanceof(CometChat.Group);
             });
 
-            it("leaving the group", function () {
+            it("Should not join the public group since user is already a member", function () {
+                return CometChat.joinGroup(public_group_to_be_joined, group_type_public).should.be.rejectedWith(CometChat.CometChatException);
+            });
+
+            it("Should leave the public group", function () {
                 return CometChat.leaveGroup(public_group_to_be_left).should.eventually.to.be.true
+            });
+
+            it("Should not leave the public group since user is not a member", function () {
+                return CometChat.leaveGroup(public_group_to_be_left).should.be.rejectedWith(CometChat.CometChatException);
             });
         });
 
@@ -98,8 +106,8 @@ describe('Initialize the CometChat and login', function () {
 
 
             let private_group_to_be_joined = "jstestgroup3",
-            private_group_to_be_left = "jstestgroup3";
-            
+                private_group_to_be_left = "jstestgroup3";
+
 
 
             it("Should create private group", function () {
@@ -119,24 +127,33 @@ describe('Initialize the CometChat and login', function () {
             });
             it("Joining the private group", function () {
                 return CometChat.joinGroup(private_group_to_be_joined, group_type_private).should.eventually.to.be.an.instanceof(CometChat.Group);
-            });            
-            it("Leaving the privte group", function () {
+            });
+            it("Should not join the private group since user is already a member", function () {
+                return CometChat.joinGroup(private_group_to_be_joined, group_type_private).should.be.rejectedWith(CometChat.CometChatException);
+            });
+            it("Should leave the private group", function () {
                 return CometChat.leaveGroup(private_group_to_be_left).should.eventually.to.be.true
+            });
+            it("Should not leave the private group since user is not a member", function () {
+                return CometChat.leaveGroup(private_group_to_be_left).should.be.rejectedWith(CometChat.CometChatException);
             });
         });
 
         describe('Creating password group', function () {
-            let password_GUID = "jstestgroup6";
+            let password_GUID = "test_password_group" + "_" + new Date().getTime();
             let password_group_name = "Password Test Group One";
-            let password_group_des = "Password";
+            let password_group_des = "Hello Group! created  at " + new Date().toString();
             let group_type_password = CometChat.GROUP_TYPE.PASSWORD;
             let password = "password";
+            let invlidPassword = "invalidPassword";
 
-            let notjoined_password_GUID = "SUPERGROUP1";
+            let notjoined_password_GUID = "jstestgroup6";
 
             let password_group = new CometChat.Group(password_GUID, password_group_name, group_type_password, password);
             password_group.setDescription(password_group_des);
 
+            let password_group_to_be_left = 'jstestgroup5',
+                password_group_to_be_joined = "jstestgroup5";
             it("Should create password group", function () {
                 return CometChat.createGroup(password_group).should.eventually.to.be.an.instanceof(CometChat.Group)
             });
@@ -153,12 +170,18 @@ describe('Initialize the CometChat and login', function () {
                 return CometChat.getGroup(notjoined_password_GUID).should.be.rejectedWith(CometChat.CometChatException);
             });
 
-            it("Joining the password group", function () {
-                return CometChat.joinGroup(password_group_to_be_joined, group_type_password,password).should.eventually.to.be.an.instanceof(CometChat.Group);
+            it("should join the password group", function () {
+                return CometChat.joinGroup(password_group_to_be_joined, group_type_password, password).should.eventually.to.be.an.instanceof(CometChat.Group);
             });
-               it("Leaving the privte group", function () {
-                   return CometChat.leaveGroup(password_group_to_be_left).should.eventually.to.be.true
-               });
+            it("Should not join the password group since user is already a member", function () {
+                return CometChat.joinGroup(password_group_to_be_joined, group_type_password, password).should.be.rejectedWith(CometChat.CometChatException);
+            });
+            it("should leave the password group", function () {
+                return CometChat.leaveGroup(password_group_to_be_left).should.eventually.to.be.true
+            });
+            it("Should not leave the `password` group since user is not a member", function () {
+                return CometChat.leaveGroup(password_group_to_be_left).should.be.rejectedWith(CometChat.CometChatException);
+            });
         });
     });
 });
